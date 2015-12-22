@@ -4,20 +4,17 @@ int c = 1; // sum of var a"sub"(n - 1) + a"sub"(n - 2)
 int screen  =1000;
 int x = a; // coordinate x of the center of the arc
 int y = b; // coordinate y of the center of the arc
-int memoX = 0;
-int memoY = 0;
-int side =4;
-int center = screen/2;
+int side =4; // indicates the orientation of the rectangles
 int colorC = 0; // R || G || B
 int colorA = 0; // R || G || B
-int colorB = 0; // R || G || B
+int colorB = 0; // R || G || B 
 
 void setup()
 {
-  size(2048, 1000); // size of screen
+  size(1440, 900); // size of screen
   //fullScreen();
-  x = x + center; // initialize the coordinate x
-  y = y + center; // initialize the coordinate y
+  x = x + width/2; // initialize the coordinate x
+  y = y + height/2; // initialize the coordinate y
   stroke(255,255,255); // color white to see the stroke
 }
 void draw(){} // this is need to draw 
