@@ -3,8 +3,8 @@ int y = 0;
 int size = 0;
 void setup()
 {
-  size(1440, 900);
-  size = height;
+  fullScreen();
+  size = 900;
   background(#00A7E4);
   Sierpinski(x,y,size);
 }
@@ -16,7 +16,7 @@ void Sierpinski(int x, int y, int size)
 {
   if (size < 8)
   {
-    fill(#79E400);
+    fill(x,y,size);
     //noStroke();
     rect(x,y,size,size);
   } else

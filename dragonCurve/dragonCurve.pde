@@ -6,7 +6,8 @@ int dir = 2;
 int size = 1;
 void setup()
 {
-  size(1440, 900);
+  //size(1440, 900);
+  fullScreen();
   x = width/2;
   y = height/2;
   frameRate(2000);
