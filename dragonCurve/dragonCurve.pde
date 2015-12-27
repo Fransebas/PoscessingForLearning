@@ -3,7 +3,7 @@ int y = 0;
 int n = 0;
 //bool turn = (((n & −n) << 1) & n) != 0" is TRUE if the nth turn is L; and is FALSE if the nth turn is R.
 int dir = 2;
-int size = 2;
+int size = 1;
 void setup()
 {
   size(1440, 900);

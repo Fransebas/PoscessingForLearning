@@ -8,3 +8,4 @@ This git is only made for my university colleagues, any unknown contribution won
  - fibonacci v 3.0 
  	acendant fibonacci whit visual rectangles and spiral.
  - Dragons Curve 
+ - Sierpinski Gasket
