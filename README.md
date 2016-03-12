@@ -5,7 +5,11 @@ This git is only made for my university colleagues, any unknown contribution won
 
 <h1> Algorithms to date</h1>
 
- - fibonacci v 3.0 
- 	acendant fibonacci whit visual rectangles and spiral.
+ - Fibonacci Curve
  - Dragons Curve 
  - Sierpinski Gasket
+ - Game of Life
+ - Julian Set
+ - Mandelbrot Set
+ - Physics simulation
+	- Parabolic shot
