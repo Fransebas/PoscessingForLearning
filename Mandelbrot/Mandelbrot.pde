@@ -27,7 +27,7 @@ public color iteration(double[] cmplx, double[] cmplx2) // return of counts to i
   //println(c_norm);
   while (c_norm < b_norm) // if norm of (x,y) is greater than the norm
   {
-    if(cont > 1000) // number of iterations = quality
+    if(cont > 2000) // number of iterations = quality
       break;
     else
     {
@@ -40,7 +40,7 @@ public color iteration(double[] cmplx, double[] cmplx2) // return of counts to i
   }
   if (cont < 175)
     cont*=10;
-  if (cont >= 500)
+  if (cont >= 2000)
     out = color (0,0,0);
   else
     out = color ((cont/2)%255,(cont)%255,(2*cont));

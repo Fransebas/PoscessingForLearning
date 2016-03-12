@@ -1,25 +1,19 @@
-double[] c = {.00005 , 1.185785};
-//.16756475 , 1.00005785
-//PI - 3 , .900018
-//.00005 , 1.185785
-//.00005 , .90005
-//-0.4, 0.6
-//0.15 , -1.f
-//0.475 , -0.71f
-// .58 , .69685 norm = 2
-//double b_norm = norm(c);
+double[] c = {-.9000000001 , .000000005};
+// add cool coordenates
+//-1.4000000001 , .000000005
+//-1.9000000001 , .000000005
 double b_norm = 2;
-
 double x,y,mid_x,mid_y;
 
-int max_i = 1000;
-color pixel = color(0,0,0);
+int max_i = 500;
+int pixel = color(0,0,0);
 boolean start = true;
 int d_count = 4;
+double zoom = 1;
 
-public color iteration(double[] cmplx, double[] cmplx2)
+public int iteration(double[] cmplx)
 {
-  color out = color(0,0,0);
+  int out = color(0,0,0);
   int cont=0;
   double c_norm = norm(cmplx);
   //println(c_norm);
@@ -29,8 +23,6 @@ public color iteration(double[] cmplx, double[] cmplx2)
       break;
     else
     {
-      //c[0] = cmplx2[0];
-      //c[1] = cmplx2[1];
       cmplx = square(cmplx);
       cmplx[0] += c[0];
       cmplx[1] += c[1];
@@ -63,47 +55,22 @@ public double[] square(double[] cmplx) // z = z^2 + c
 public void fractal(int deep)
 {
   double[] cmplx = new double[2];
-  double[] cmplx2 = new double[2];
-  cmplx[0] = -450/100*deep;
-  cmplx[1] = -450/100*deep;
   for (int i=0;i<height;i++) // y
   {
      for(int j=0;j<width;j++)
      {
-       cmplx2[0] = (double)(j - mid_x)/ (double)(deep*100);
-       cmplx2[1] = (double)(i - mid_y)/ (double)(deep*100);
-       cmplx[0] = (double)(j - mid_x)/ (double)(deep*100);
-       cmplx[1] = (double)(i - mid_y)/ (double)(deep*100);
-       pixel = iteration(cmplx, cmplx2);
-       set(j,i,pixel);
-     }
-  }
-}
-public void fractal(int deep, int right, int left, int up, int down)
-{
-  double[] cmplx = new double[2];
-  cmplx[0] = -450/100*deep;
-  cmplx[1] = -450/100*deep;
-  for (int i=0;i<height;i++) // y
-  {
-     for(int j=0;j<width;j++)
-     {
-       cmplx[0] = (double)(j - mid_x)/ (double)(deep*100);
-       cmplx[1] = (double)(i - mid_y)/ (double)(deep*100);
-       //pixel = iteration(cmplx);
+       cmplx[0] = ((double)(j - mid_x)/ (double)(100))/zoom;
+       cmplx[1] = ((double)(i - mid_y)/ (double)(100))/zoom;
+       pixel = iteration(cmplx);
        set(j,i,pixel);
      }
   }
 }
 public void setup()
 {
-  size(1440,900);
+  size(400,400);
   mid_x = width/2; // x =0
   mid_y = height/2; // y = 0
- // println(b_norm);
- c = square(c);
- println(c[0]);
- println(c[1]);
 }
 public void draw()
 {
@@ -113,13 +80,13 @@ public void draw()
     fractal(d_count);
   }
 }
-void keyPressed()
+public void keyPressed()
 {
-    
+  //saveFrame();
   if(keyCode == (char)32)
   {
+    zoom++;
     fractal(d_count);
-    d_count++;
   } else if(keyCode == RIGHT)
   {
     mid_x-=10;
@@ -139,7 +106,17 @@ void keyPressed()
   {
     mid_y-=10;
     fractal(d_count);
-  }else if(keyCode == 'f')
-     saveFrame();
+  }
+  else if (keyCode == ',')
+  {
+    c[0] -= 0.001f;
+    fractal(d_count);
+  } else if (keyCode == '.')
+  {
+    c[0] += 0.001f;
+    fractal(d_count);
+  }
+  //else if(keyCode == 'f')
+     
   
 }
